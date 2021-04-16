@@ -22,10 +22,18 @@ export default function Home() {
         mb="12"
       />
 
-      <Text alignSelf="center" fontSize="4xl" fontWeight="medium">
+      <Text
+        alignSelf="center"
+        fontSize={{ base: 'lg', lg: '4xl' }}
+        fontWeight="medium"
+      >
         Vamos nessa?
       </Text>
-      <Text alignSelf="center" fontSize="4xl" fontWeight="medium">
+      <Text
+        alignSelf="center"
+        fontSize={{ base: 'lg', lg: '4xl' }}
+        fontWeight="medium"
+      >
         Então escolha seu continente
       </Text>
 

@@ -2,12 +2,21 @@ import { Flex, Image, Text, SimpleGrid } from '@chakra-ui/react';
 
 export function PageCities() {
   return (
-    <Flex direction="column" mx="36">
-      <Text fontSize="4xl" fontWeight="medium" mb="9">
-        Cidade +100
+    <Flex direction="column" mx={{ base: '4', lg: '36' }}>
+      <Text
+        fontSize={{ base: '2xl', lg: '4xl' }}
+        fontWeight="medium"
+        mb={{ base: '5', lg: '9' }}
+      >
+        Cidades +100
       </Text>
 
-      <SimpleGrid columns={4} spacing="12" mb="10">
+      <SimpleGrid
+        columns={{ base: 1, lg: 4 }}
+        spacing={{ base: '5', lg: '12' }}
+        mb="10"
+        mx={{ base: '16' }}
+      >
         <Flex direction="column" bg="white" borderRadius="base">
           <Image
             src="/continents/europe/slider.png"

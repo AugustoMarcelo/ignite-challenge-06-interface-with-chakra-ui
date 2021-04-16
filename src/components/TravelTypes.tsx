@@ -1,28 +1,71 @@
-import { VStack, HStack, Image, Text } from "@chakra-ui/react";
+import {
+  Image,
+  Text,
+  useBreakpointValue,
+  Box,
+  SimpleGrid,
+  Flex,
+} from '@chakra-ui/react';
+
+const travelTypes = [
+  {
+    imageUrl: '/cocktail.svg',
+    text: 'vida noturna',
+  },
+  {
+    imageUrl: '/surf.svg',
+    text: 'praia',
+  },
+  {
+    imageUrl: '/building.svg',
+    text: 'moderno',
+  },
+  {
+    imageUrl: '/museum.svg',
+    text: 'clássico',
+  },
+  {
+    imageUrl: '/earth.svg',
+    text: 'e mais...',
+  },
+];
 
 export function TravelTypes() {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
+
   return (
-    <HStack justify="space-between" px="32" mt="28">
-      <VStack align="center" spacing="6">
-        <Image src="/cocktail.svg" />
-        <Text fontWeight="600" fontSize="2xl">vida noturna</Text>
-      </VStack>
-      <VStack align="center" spacing="6">
-        <Image src="/surf.svg" />
-        <Text fontWeight="600" fontSize="2xl">praia</Text>
-      </VStack>
-      <VStack align="center" spacing="6">
-        <Image src="/building.svg" />
-        <Text fontWeight="600" fontSize="2xl">moderno</Text>
-      </VStack>
-      <VStack align="center" spacing="6">
-        <Image src="/museum.svg" />
-        <Text fontWeight="600" fontSize="2xl">clássico</Text>
-      </VStack>
-      <VStack align="center" spacing="6">
-        <Image src="/earth.svg" />
-        <Text fontWeight="600" fontSize="2xl">e mais...</Text>
-      </VStack>
-    </HStack>
-  )
+    <SimpleGrid
+      columns={{ base: 2, lg: 5 }}
+      mt={{ base: '9', lg: '28' }}
+      px={{ base: '12', lg: '32' }}
+      spacing="4"
+    >
+      {travelTypes.map((travelType) => (
+        <Flex
+          align="center"
+          justify="center"
+          spacing="6"
+          direction={{ base: 'row', lg: 'column' }}
+        >
+          {isWideVersion ? (
+            <Image src={travelType.imageUrl} />
+          ) : (
+            <Box
+              width="8px"
+              height="8px"
+              bgColor="yellow.900"
+              borderRadius="full"
+              mr="2"
+            />
+          )}
+          <Text fontWeight="600" fontSize={{ base: 'lg', lg: '2xl' }}>
+            {travelType.text}
+          </Text>
+        </Flex>
+      ))}
+    </SimpleGrid>
+  );
 }
